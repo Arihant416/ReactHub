@@ -3,7 +3,8 @@ const express = require('express'),
 const mongoose = require('mongoose'),
    User = mongoose.model('User');
 const bcrypt = require('bcryptjs'),
-   jwt = require('jsonwebtoken');
+   jwt = require('jsonwebtoken'),
+   { jwtSecret } = require('../config/key')
 
 //Email Validation Function   
 const isEmail = (email) => {
@@ -62,7 +63,8 @@ router.post('/login', (req, res) => {
          bcrypt.compare(password, user.password)
             .then(isValid => {
                if (isValid) {
-                  res.json({ message: `Login Successful, Welcome back ${user.firstname}` });
+                  const token = jwt.sign({ _id: user._id }, jwtSecret);
+                  res.json({ token, message: `Login Successful, Welcome back ${user.firstname}😃` });
                   console.log(`Welcome ${user.firstname}`)
                } else {
                   return res.status(422).json({ error: 'Something went wrong :(' })
