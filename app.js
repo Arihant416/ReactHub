@@ -4,8 +4,7 @@ const express = require('express'),
    mongoose = require('mongoose'),
    { mongoURL } = require('./config/key');
 
-require('./models/userModel');
-app.use(express.json());
+
 mongoose.connect(mongoURL,
    { useNewUrlParser: true, useUnifiedTopology: true }
 )
@@ -15,8 +14,9 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', () => {
    console.log('Failed to connect Atlas')
 })
-
+require('./models/userModel');
 //Routes Required
+app.use(express.json());
 app.use(require('./routes/userRoutes'));
 
 app.listen(PORT, () => {
