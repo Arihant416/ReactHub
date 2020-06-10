@@ -48,7 +48,31 @@ router.post('/signup', (req, res) => {
       }).catch(err => console.log(err))
 })
 
-
+//login Route for a new user
+router.post('/login', (req, res) => {
+   const { email, password } = req.body;
+   if (!isEmail(email) || !password) {
+      return res.status(422).json({ error: 'Invalid Credentials' })
+   }
+   User.findOne({ email: email })
+      .then(user => {
+         if (!user) {
+            return res.status(404).json({ error: 'User not found' })
+         }
+         bcrypt.compare(password, user.password)
+            .then(isValid => {
+               if (isValid) {
+                  res.json({ message: `Login Successful, Welcome back ${user.firstname}` });
+                  console.log(`Welcome ${user.firstname}`)
+               } else {
+                  return res.status(422).json({ error: 'Something went wrong :(' })
+               }
+            })
+            .catch(err => {
+               console.log(err);
+            })
+      }).catch(err => console.log(err))
+})
 module.exports = router
 
 /*
