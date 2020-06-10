@@ -13,7 +13,7 @@ const mongoose = require('mongoose'),
       },
       uploadedBy: {
          type: ObjectId,
-         ref: 'User'
+         ref: "User"
       }
    },
       {
