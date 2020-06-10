@@ -9,7 +9,7 @@ const verifyLogin = require('../controller/verifyLogin');
 
 //Verify Login check
 router.get('/secret', verifyLogin, (req, res) => {
-   res.send('Hello M****c***')
+   res.send('Hello Chu***e')
 })
 
 //SignUp route for a new user
