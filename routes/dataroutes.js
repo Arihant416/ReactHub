@@ -12,18 +12,18 @@ router.get('/alldata', (req, res) => {
          res.json({ data })
       }).catch(err => {
          console.log(err);
-
       })
 })
 //Add a new post
 router.post('/newpost', verifyLogin, (req, res) => {
-   const { title, content } = req.body;
-   if (!title || !content) {
+   const { title, content, picture } = req.body;
+   if (!title || !content || !picture) {
       return res.status(422).json({ error: "Filling all fields is mandatory" });
    }
    const uploadData = new Data({
       title,
       content,
+      picture: picture,
       uploadedBy: req.user
    })
    uploadData.save()

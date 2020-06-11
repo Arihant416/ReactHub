@@ -7,11 +7,6 @@ const bcrypt = require('bcryptjs'),
    { jwtSecret } = require('../config/key')
 const verifyLogin = require('../controller/verifyLogin');
 
-//Verify Login check
-router.get('/secret', verifyLogin, (req, res) => {
-   res.send('Hello Chu***e')
-})
-
 //SignUp route for a new user
 router.post('/signup', (req, res) => {
    // console.log(req.body)
@@ -22,7 +17,7 @@ router.post('/signup', (req, res) => {
    User.findOne({ email: email })
       .then((user) => {
          if (user) {
-            return res.status(422).json({ error: 'A user with the same email already exists.' })
+            return res.status(422).json({ error: 'User already Exists' })
          }
          bcrypt.hash(password, 11)
             .then(hashedpassword => {
@@ -57,7 +52,15 @@ router.post('/login', (req, res) => {
             .then(isValid => {
                if (isValid) {
                   const token = jwt.sign({ _id: user._id }, jwtSecret);
-                  res.json({ token, message: `Login Successful, Welcome back ${user.firstname}😃` });
+                  const { _id, firstname, email } = user
+                  res.json(
+                     {
+                        token,
+                        message: `Login Successful, Welcome back ${user.firstname}😃`,
+                        user:
+                           { _id, firstname, email }
+                     }
+                  );
                   console.log(`Welcome ${user.firstname}`)
                } else {
                   return res.status(422).json({ error: 'Something went wrong :(' })

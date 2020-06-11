@@ -7,9 +7,9 @@ const mongoose = require('mongoose'),
       content: {
          type: String, required: true,
       },
-      pic: {
+      picture: {
          type: String,
-         default: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png'
+         required: true
       },
       uploadedBy: {
          type: ObjectId,
