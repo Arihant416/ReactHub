@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Dancing+Script:wght@700&family=Tenali+Ramakrishna&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+.nvlinks,h5{
+   text-decoration: none !important;
+   font-family:'Dancing Script',cursive;
+}
+
+.brand-logo,h2{
+   font-family:'Pacifico',cursive;
+}
