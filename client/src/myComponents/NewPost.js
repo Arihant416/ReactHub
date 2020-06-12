@@ -26,6 +26,7 @@ const NewPost = () => {
             .then(data => {
                if (data.error) {
                   M.toast({ html: data.error, classes: '#f44336 red' })
+                  history.push('/login')
                } else {
                   M.toast({ html: 'Feed Posted Successfully', classes: '#00e676 green accent-3' })
                   history.push('/')
