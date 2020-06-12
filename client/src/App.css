@@ -11,3 +11,9 @@
 .brand-logo,h2{
    font-family:'Pacifico',cursive;
 }
+
+.lander{
+   max-width: 700px;
+   height:max-content;
+   margin:20px auto 
+}
