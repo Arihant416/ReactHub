@@ -15,7 +15,7 @@ export default class Header extends Component {
    }
    render() {
       const style = { fontSize: '18px', color: '#eeeeee grey lighten-2' }
-      const brandStyle = { margin: 'auto auto', fontSize: '25px', color: 'teal', paddingTop: '3px' };
+      const brandStyle = { margin: 'auto 6px', fontSize: '25px', color: 'teal', paddingTop: '3px' };
       const style_sidenav = { fontSize: '25px', color: '#000' }
       return (
          <div>
@@ -34,13 +34,13 @@ export default class Header extends Component {
                   </ul>
                </div>
             </nav>
-            <ul className="#9e9e9e grey
-               sidenav" id="mobile-nav">
-               <li className="nvlinks sidenav-close"><Link to='/login' style={style_sidenav}>Login</Link></li>
-               <li className="nvlinks sidenav-close"><Link to='/signup' style={style_sidenav}>SignUp</Link></li>
-               <li className="nvlinks sidenav-close"><Link to='/myposts' style={style_sidenav}>Profile</Link></li>
-               <li className="nvlinks sidenav-close"><Link to='/newpost' style={style_sidenav}>New feed</Link></li>
-               <li className="nvlinks sidenav-close"><Link to='/about' style={style_sidenav}>About</Link></li>
+            <ul className="#42a5f5 blue lighten-1 sidenav" id="mobile-nav">
+               <li className="nvlinks sidenav-close"><Link to='/login' style={style_sidenav}>Login<i
+                  className="material-icons">input</i></Link></li>
+               <li className="nvlinks sidenav-close"><Link to='/signup' style={style_sidenav}>SignUp<i className="material-icons">launch</i></Link></li>
+               <li className="nvlinks sidenav-close"><Link to='/myposts' style={style_sidenav}>Profile<i className="material-icons">golf_course</i></Link></li>
+               <li className="nvlinks sidenav-close"><Link to='/newpost' style={style_sidenav}>New feed<i className="material-icons">photo_library</i></Link></li>
+               <li className="nvlinks sidenav-close"><Link to='/about' style={style_sidenav}>About<i className="material-icons">favorite_border</i></Link></li>
             </ul>
          </div>
       )

@@ -34,7 +34,7 @@ const Login = () => {
    return (
       <div className="container">
          <div className="myform" style={myFormStyle}>
-            <div className="#607d8b card formcard hoverable input-field">
+            <div className="card formcard hoverable input-field">
                <h2><span>React Hub</span></h2>
                <input type="email"
                   placeholder="Email"
@@ -45,7 +45,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)} />
                <button style={buttonStyle} className="btn waves-effect waves light black darken-1"
                   onClick={() => AddCredentials()}>Login</button>
-               <h5 style={{ textAlign: "center" }}>
+               <h5 className="formlinks" style={{ textAlign: "center" }}>
                   <Link to="/signup">Register Now</Link>
                </h5>
             </div>

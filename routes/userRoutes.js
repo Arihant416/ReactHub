@@ -29,7 +29,7 @@ router.post('/signup', (req, res) => {
                })
                person.save()
                   .then(user => {
-                     res.json({ Success: `Welcome to ReactHub ${user.firstname}` })
+                     res.json({ message: `Welcome to ReactHub ${user.firstname}` })
                   })
                   .catch(err => console.log(err))
             }).catch(err => console.log(err))
