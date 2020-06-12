@@ -50,7 +50,7 @@ const SignUp = () => {
                <button style={buttonStyle} className="btn waves-effect waves light black darken-1"
                   onClick={() => AddCredentials()}>SignUp</button>
                <h5 className='formlinks' style={{ textAlign: "center" }}>
-                  <Link to="/login">Registered already?</Link>
+                  <Link to="/login" style={{ color: 'black' }}>Registered already?</Link>
                </h5>
             </div>
          </div>
