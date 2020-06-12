@@ -17,3 +17,29 @@
    height:max-content;
    margin:20px auto 
 }
+
+.formcard{
+   padding:20px;
+   text-align: center;
+   max-width: 400px;
+   margin:10px auto
+}
+
+.input-field input[type=email]:focus {
+   border-bottom: 1px solid rgb(81, 113, 172) !important;
+   box-shadow: 0 1px 0 0 rgb(182, 117, 165) !important;
+}
+.input-field input[type=password]:focus {
+   border-bottom: 1px solid rgb(13, 32, 66) !important;
+   box-shadow: 0 1px 0 0 rgb(182, 106, 163) !important;
+}
+.input-field input[type=text]:focus {
+   border-bottom: 1px solid rgb(20, 41, 80) !important;
+   box-shadow: 0 1px 0 0 rgb(73, 27, 87) !important;
+}
+
+#toast-container {
+   top: 30px;
+   right: 20px;
+   left: auto;
+}
