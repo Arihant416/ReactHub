@@ -23,34 +23,8 @@ const Profile = () => {
          {/* Styling the Gallery */}
          <div className="row center">
             <div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
             </div>
-            <div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
-            </div>
-            <div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
-            </div>
-            <div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
-            </div>
-            <div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
-            </div>
-            <div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
-            </div><div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
-            </div>
-            <div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
-            </div>
-
-            <div className="col s12 m6 l4">
-               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
-            </div>
-
-
          </div>
 
 

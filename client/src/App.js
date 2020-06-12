@@ -5,6 +5,7 @@ import Login from './myComponents/Login';
 import Signup from './myComponents/SignUp';
 import NewPost from './myComponents/NewPost';
 import Profiles from './myComponents/MyProfile';
+import About from './myComponents/About';
 import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
       <Route path='/signup' component={Signup} />
       <Route path='/newpost' component={NewPost} />
       <Route path='/myposts' component={Profiles} />
+      <Route path='/about' component={About} />
     </BrowserRouter>
   );
 }

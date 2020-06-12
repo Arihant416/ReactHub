@@ -34,7 +34,7 @@ export default class Header extends Component {
                   </ul>
                </div>
             </nav>
-            <ul className="#42a5f5 blue lighten-1 sidenav" id="mobile-nav">
+            <ul className="#e0e0e0 grey lighten-2 sidenav" id="mobile-nav">
                <li className="nvlinks sidenav-close"><Link to='/login' style={style_sidenav}>Login<i
                   className="material-icons">input</i></Link></li>
                <li className="nvlinks sidenav-close"><Link to='/signup' style={style_sidenav}>SignUp<i className="material-icons">launch</i></Link></li>
