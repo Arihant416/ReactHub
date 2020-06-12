@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import M from 'materialize-css'
+import $ from 'jquery';
 export default class About extends Component {
-   constructor() {
-      super()
-      this.state = {
-         'loading': false,
-      }
-   }
-   componentDidMount() {
+   componentWillMount() {
       document.addEventListener('DOMContentLoaded', function () {
          var elems = document.querySelectorAll('.carousel');
          //eslint-disable-next-line
          var instances = M.Carousel.init(elems, {});
       });
+      $(document).ready(() => {
+         M.Carousel.init($('.carousel'), {})
+      })
    }
    render() {
       return (
