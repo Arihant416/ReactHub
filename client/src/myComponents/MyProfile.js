@@ -12,7 +12,7 @@ const Profile = () => {
             </div>
             <div>
                <h5 style={{ textAlign: 'center', marginTop: '30px' }}>Christopher Campbell</h5>
-               <div style={{ display: 'flex', justifyContent: 'space-between', width: '108%' }}>
+               <div className="center" style={{ display: 'flex-column', justifyContent: 'space-between', width: '108%' }}>
                   <h6>10 Posts</h6>
                   <h6>2k Following</h6>
                   <h6>100 Followers</h6>
@@ -23,7 +23,28 @@ const Profile = () => {
          {/* Styling the Gallery */}
          <div className="row center">
             <div className="col s12 m6 l4">
-               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox" />
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div>
+            <div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
+            </div><div className="col s12 m6 l4">
+               <img alt="testImage" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style={{ width: '400px' }} className="responsive-img card materialBox hoverable" />
             </div>
          </div>
 

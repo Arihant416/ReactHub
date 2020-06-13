@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Dancing+Script:wght@700&family=Tenali+Ramakrishna&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
 .nvlinks,h5{
+   text-decoration: none !important;
+}
+.nvlinks{
+   font-family: 'Cinzel', serif;}
+h5{
    text-decoration: none !important;
    font-family:'Dancing Script',cursive;
 }
 .nvlinks{
    color:#dcedc8 !important
+}
+.myname{
+   font-family:'Dancing Script',cursive;
 }
 .brand-logo,h2{
    font-family:'Pacifico',cursive;
