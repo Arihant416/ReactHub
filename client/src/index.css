@@ -12,7 +12,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-footer{
+/* footer{
 	position: fixed;
 	bottom: 0;
 }
@@ -41,7 +41,7 @@ footer{
  
 /* Footer left */
  
-.footer-distributed .footer-left{
+/* .footer-distributed .footer-left{
   width: 30%;
 }
  
@@ -52,17 +52,17 @@ footer{
 }
  
 /* The company logo */
- 
+/*  
 .footer-distributed .footer-left img{
 	width: 30%;
 }
  
 .footer-distributed h3 span{
 	color:  #e0ac1c;
-}
+} */
  
 /* Footer links */
- 
+/*  
 .footer-distributed .footer-links{
 	color:  #ffffff;
 	margin: 20px 0 12px;
@@ -80,11 +80,11 @@ footer{
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
-}
+} */
  
 /* Footer Center */
  
-.footer-distributed .footer-center{
+/* .footer-distributed .footer-center{
 	width: 35%;
 }
  
@@ -125,10 +125,10 @@ footer{
 	color:  #e0ac1c;
 	text-decoration: none;;
 }
- 
+  */
  
 /* Footer Right */
- 
+/*  
 .footer-distributed .footer-right{
 	width: 30%;
 }
@@ -139,9 +139,9 @@ footer{
 	font-size: 13px;
 	font-weight: normal;
 	margin: 0;
-}
+} */
  
-.footer-distributed .footer-company-about span{
+/* .footer-distributed .footer-company-about span{
 	display: block;
 	color:  #ffffff;
 	font-size: 18px;
@@ -151,9 +151,9 @@ footer{
  
 .footer-distributed .footer-icons{
 	margin-top: 25px;
-}
+} */
  
-.footer-distributed .footer-icons a{
+/* .footer-distributed .footer-icons a{
 	display: inline-block;
 	width: 35px;
 	height: 35px;
@@ -169,11 +169,11 @@ footer{
 	margin-right: 3px;
 	margin-bottom: 5px;
 }
- 
+  */
 /* Here is the code for Responsive Footer */
 /* You can remove below code if you don't want Footer to be responsive */
  
- 
+/*  
 @media (max-width: 880px) {
  
 	.footer-distributed .footer-left,
@@ -189,4 +189,4 @@ footer{
 		margin-left: 0;
 	}
  
-}
+} */ 
