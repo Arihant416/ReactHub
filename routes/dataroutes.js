@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
 const verifyLogin = require('../controller/verifyLogin');
 
 // Make route to Get all the posts 
-router.get('/alldata', (req, res) => {
+router.get('/alldata', verifyLogin, (req, res) => {
    Data.find()
       .populate("uploadedBy", "_id firstname lastname email")
       .then(data => {
