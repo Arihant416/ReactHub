@@ -18,7 +18,7 @@ const Home = () => {
             data.map(item => {
                return (
                   <div className="card hoverable home-card" key={item._id}>
-                     <h5 className="center">{item.uploadedBy.firstname}</h5>
+                     <h5 className="center">{item.uploadedBy.firstname + " " + item.uploadedBy.lastname}</h5>
                      <div className="card-image">
                         <img src={item.picture} alt="" />
                      </div>

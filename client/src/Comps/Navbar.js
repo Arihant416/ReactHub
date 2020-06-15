@@ -29,7 +29,7 @@ const Navbars = () => {
       <div>
          <nav>
             <div className="nav-wrapper #212121 grey darken-4">
-               <Link to={state ? "/" : "/login"} className="brand-logo left" style={{ margin: 'auto auto', fontSize: '25px', color: 'teal', paddingTop: '3px' }}>React Hub</Link>
+               <Link to={state ? "/" : "/login"} className="brand-logo left" style={{ marginLeft: '5px', fontSize: '25px', color: 'teal', paddingTop: '3px' }}>React Hub</Link>
                <ul id="nav-mobile" className="right">
                   {renderList()}
                </ul>
