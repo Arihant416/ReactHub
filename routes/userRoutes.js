@@ -52,13 +52,13 @@ router.post('/login', (req, res) => {
             .then(isValid => {
                if (isValid) {
                   const token = jwt.sign({ _id: user._id }, jwtSecret);
-                  const { _id, firstname, email } = user
+                  const { _id, firstname, email, lastname } = user
                   res.json(
                      {
                         token,
                         message: `Login Successful, Welcome back ${user.firstname}😃`,
                         user:
-                           { _id, firstname, email }
+                           { _id, firstname, email, lastname }
                      }
                   );
                   console.log(`Welcome ${user.firstname}`)

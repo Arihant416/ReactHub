@@ -11,6 +11,10 @@ const mongoose = require('mongoose'),
          type: String,
          required: true
       },
+      likes: [
+         { type: ObjectId, ref: 'User' }
+      ],
+
       uploadedBy: {
          type: ObjectId,
          ref: "User"
