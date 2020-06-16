@@ -29,7 +29,7 @@ const Home = () => {
          .then(result => {
             console.log(result)
             const newData = data.map(item => {
-               if (item._id == result._id) {
+               if (item._id === result._id) {
                   return result
                } else {
                   return item
@@ -52,7 +52,7 @@ const Home = () => {
          .then(result => {
             // console.log(result)
             const newData = data.map(item => {
-               if (item._id == result._id) {
+               if (item._id === result._id) {
                   return result
                } else {
                   return item
@@ -61,13 +61,74 @@ const Home = () => {
             setData(newData);
          }).catch(err => console.log(err))
    }
+   const postComment = (text, postId) => {
+      fetch("/comment", {
+         method: 'put',
+         headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('jwt')
+         },
+         body: JSON.stringify({
+            postId,
+            text
+         })
+      }).then(res => res.json())
+         .then(result => {
+            console.log(result)
+            const newData = data.map(item => {
+               if (item._id === result._id) {
+                  return result
+               } else {
+                  return item
+               }
+            })
+            setData(newData)
+         }).catch(err => console.log(err))
+   }
+   const deletePost = (postId) => {
+      fetch(`/deletepost/${postId}`, {
+         method: 'delete',
+         headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('jwt')
+         }
+      }).then(res => res.json())
+         .then(result => {
+            console.log(result);
+            const newData = data.filter(item => {
+               return item._id !== result._id
+            })
+            setData(newData)
+         })
+   }
+   const deleteComment = (postId, commentId) => {
+      fetch(`/deletecomment/${postId}/${commentId}`, {
+         method: 'delete',
+         headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('jwt')
+         }
+      }).then(res => res.json())
+         .then(result => {
+            console.log(result)
+            const newData = data.map(item => {
+               if (item._id === result._id) {
+                  return result
+               }
+               else {
+                  return item
+               }
+            })
+            setData(newData)
+         }).catch(err => console.log(err))
+   }
    return (
       <div className="home container">
          {
             data.map(item => {
                return (
                   <div className="card hoverable home-card" key={item._id}>
-                     <h5 className="center">{item.uploadedBy.firstname + " " + item.uploadedBy.lastname}</h5>
+                     <h5 className="center">{item.uploadedBy.firstname + " " + item.uploadedBy.lastname}
+                        {item.uploadedBy._id === state._id && <i className="material-icons" style={{ float: 'right' }} onClick={() => deletePost(item._id)}>delete</i>}
+                     </h5>
                      <div className="card-image">
                         <img src={item.picture} alt="" />
                      </div>
@@ -82,7 +143,26 @@ const Home = () => {
                         <h6>{item.likes.length} liked</h6>
                         <h6>{item.title}</h6>
                         <p>{item.content}</p>
-                        <input type="text" placeholder="Say Somethinng!" />
+                        {
+                           item.comments.map(comment => {
+                              return (
+                                 <h6 key={comment._id}>
+                                    {comment.postedBy._id === state._id && <i className="material-icons" style={{ cursor: 'pointer', float: 'left', fontSize: '15px', marginTop: '4px', paddingRight: '4px' }}
+                                       onClick={() => deleteComment(item._id, comment._id)}>delete</i>}
+                                    <span style={{ fontWeight: 'bold' }}>
+                                       {comment.postedBy.firstname}</span> -
+                                    {comment.text}
+                                 </h6>
+                              )
+                           })
+                        }
+                        <form onSubmit={(e) => {
+                           e.preventDefault();
+                           postComment(e.target[0].value, item._id)
+                        }}>
+                           <input type="text" placeholder="Say Something!" />
+                        </form>
+
                      </div>
                   </div>
                )

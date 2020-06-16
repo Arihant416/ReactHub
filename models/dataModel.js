@@ -14,7 +14,12 @@ const mongoose = require('mongoose'),
       likes: [
          { type: ObjectId, ref: 'User' }
       ],
-
+      comments: [
+         {
+            text: String,
+            postedBy: { type: ObjectId, ref: "User" }
+         }
+      ],
       uploadedBy: {
          type: ObjectId,
          ref: "User"
