@@ -129,7 +129,7 @@ const Home = () => {
                return (
                   <div className="card hoverable home-card" key={item._id}>
                      <h5 className="center">{item.uploadedBy.firstname + " " + item.uploadedBy.lastname}
-                        {item.uploadedBy._id === state._id && <i className="material-icons" style={{ float: 'right' }} onClick={() => deletePost(item._id)}>delete</i>}
+                        {item.uploadedBy._id === state._id && <i className="material-icons" style={{ float: 'right', paddingTop: '3px' }} onClick={() => deletePost(item._id)}>delete</i>}
                      </h5>
                      <div className="card-image">
                         <img src={item.picture} alt="" />
@@ -141,7 +141,7 @@ const Home = () => {
                            :
                            <h6><i style={{ color: 'red', fontSize: '15px', marginTop: '4px', paddingRight: '4px', cursor: 'pointer', float: 'left' }} className="material-icons" onClick={() => likeIt(item._id)}>thumb_up</i> Click to like</h6>
                         }
-                        <h6>{item.likes.length} others liked</h6>
+                        <h6>{item.likes.length} liked</h6>
                         <h6>{item.title}</h6>
                         <p>{item.content}</p>
                         {

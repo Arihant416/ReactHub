@@ -5,6 +5,7 @@ import SignUp from './Comps/SignUp';
 import Login from './Comps/Login';
 import Profile from './Comps/Profile'
 import Upload from './Comps/Upload';
+import About from './Comps/About'
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom'
 import './App.css'
 import { initialState, reducer } from './reducers/userReducer'
@@ -37,6 +38,7 @@ function App() {
     <UserContext.Provider value={{ state, dispatch }}>
       <BrowserRouter>
         <Navbars />
+        <Route path='/about' component={About} />
         <Routing />
       </BrowserRouter>
     </UserContext.Provider>

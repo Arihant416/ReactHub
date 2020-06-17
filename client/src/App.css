@@ -1,21 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Dancing+Script:wght@700&family=Tenali+Ramakrishna&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Sriracha&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-.lilink,
-
-
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Itim&family=Piedra&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Itim&family=Sriracha&display=swap');
 h5 {
    text-decoration: none !important;
-   font-family: 'Dancing Script', cursive;
+   font-family: 'Sriracha', cursive;
+}
+.lilink{
+   text-decoration: none !important;
+   font-family: 'Itim', cursive;
+   color:white
 }
 
-
-
-.brand-logo,
 h2 {
    font-family: 'Pacifico', cursive;
 }
-
+.brand-logo{
+   color:white !important;
+   font-family: 'Pacifico', cursive;
+}
 
 .cardy {
    padding: 20px;
@@ -23,10 +27,14 @@ h2 {
    max-width: 400px;
    margin: 10px auto
 }
+.ch{
+   font-family: 'Itim', cursive;
+   color:#fff
+}
 
 .input-field input[type=text]:focus {
    border-bottom: 1px solid rgb(8, 93, 252) !important;
-   box-shadow: 0 1px 0 0 rgb(228, 15, 175) !important;
+   box-shadow: 0 1px 0 0 rgb(15, 150, 228) !important;
 }
 
 .gallery {
@@ -51,7 +59,10 @@ h2 {
 
 
 #toast-container {
-   top: 30px;
-   right: 20px;
-   left: auto;
+   top: 50px;
+   margin:auto auto;
+   justify-content: center;
+}
+.abouth5,.centre{
+   font-family: 'Piedra', cursive;
 }
