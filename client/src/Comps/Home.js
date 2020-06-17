@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../App'
+import { history, useHistory } from 'react-router-dom'
 const Home = () => {
+   const history = useHistory()
    const [data, setData] = useState([])
    const { state, dispatch } = useContext(UserContext);
    useEffect(() => {
@@ -135,12 +137,11 @@ const Home = () => {
                      <div className="card-content">
 
                         {item.likes.includes(state._id) ?
-                           <i className="material-icons" onClick={() => dislikeIt(item._id)}>thumb_down</i>
+                           <h6><i className="material-icons" style={{ color: 'black', fontSize: '15px', marginTop: '4px', paddingRight: '4px', cursor: 'pointer', float: 'left' }} onClick={() => dislikeIt(item._id)}>thumb_down</i> {'     '}Click to dislike</h6>
                            :
-                           <i style={{ color: 'red' }} className="material-icons" onClick={() => likeIt(item._id)}>favorite</i>
+                           <h6><i style={{ color: 'red', fontSize: '15px', marginTop: '4px', paddingRight: '4px', cursor: 'pointer', float: 'left' }} className="material-icons" onClick={() => likeIt(item._id)}>thumb_up</i> Click to like</h6>
                         }
-
-                        <h6>{item.likes.length} liked</h6>
+                        <h6>{item.likes.length} others liked</h6>
                         <h6>{item.title}</h6>
                         <p>{item.content}</p>
                         {
@@ -159,6 +160,7 @@ const Home = () => {
                         <form onSubmit={(e) => {
                            e.preventDefault();
                            postComment(e.target[0].value, item._id)
+                           e.target[0].value = ""
                         }}>
                            <input type="text" placeholder="Say Something!" />
                         </form>

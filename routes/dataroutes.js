@@ -46,7 +46,7 @@ router.get('/mypost', verifyLogin, (req, res) => {
 router.put('/like', verifyLogin, (req, res) => {
    Data.findByIdAndUpdate(req.body.postId, {
       $push: { likes: req.user._id }
-   }, { new: true }).exec((err, result) => {
+   }, { new: true }).populate('uploadedBy', '_id firstname lastname email').exec((err, result) => {
       if (err) {
          return res.status(422).json({ error: err })
       } else {
@@ -57,7 +57,7 @@ router.put('/like', verifyLogin, (req, res) => {
 router.put('/dislike', verifyLogin, (req, res) => {
    Data.findByIdAndUpdate(req.body.postId, {
       $pull: { likes: req.user._id }
-   }, { new: true }).exec((err, result) => {
+   }, { new: true }).populate('uploadedBy', '_id firstname lastname email').exec((err, result) => {
       if (err) {
          return res.status(422).json({ error: err })
       } else {
@@ -109,7 +109,7 @@ router.delete('/deletecomment/:postId/:commentId', verifyLogin, (req, res) => {
          // console.log(post.comments)
          // console.log(req.params.commentId)
          post.comments = post.comments.filter(comment => { return comment._id != req.params.commentId })
-         post.save().then(retu => res.json({ retu }))
+         post.save().then(retu => res.json(retu))
       })
 })
 module.exports = router
