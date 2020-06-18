@@ -14,6 +14,7 @@ import { initialState, reducer } from './reducers/userReducer';
 export const UserContext = createContext();
 const Routing = () => {
   const history = useHistory();
+  //eslint-disable-next-line
   const { state, dispatch } = useContext(UserContext);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -22,6 +23,7 @@ const Routing = () => {
     } else {
       history.push('/login');
     }
+    //eslint-disable-next-line
   }, []);
   return (
     <Switch>

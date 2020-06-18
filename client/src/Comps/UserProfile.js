@@ -3,6 +3,7 @@ import { UserContext } from '../App';
 import { useParams } from 'react-router-dom';
 const UserProfile = () => {
   const [userProfile, setProfile] = useState(null);
+  //eslint-disable-next-line
   const { state, dispatch } = useContext(UserContext);
   const { id } = useParams();
   // console.log(id)

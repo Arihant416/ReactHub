@@ -1,10 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../App';
 import { Link } from 'react-router-dom';
+//eslint-disable-next-line
 import { history, useHistory } from 'react-router-dom';
 const Home = () => {
+  //eslint-disable-next-line
   const history = useHistory();
   const [data, setData] = useState([]);
+  //eslint-disable-next-line
   const { state, dispatch } = useContext(UserContext);
   useEffect(() => {
     fetch('/alldata', {
