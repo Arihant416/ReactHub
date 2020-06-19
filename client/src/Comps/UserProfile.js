@@ -15,11 +15,39 @@ const UserProfile = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setProfile(result);
       });
     //eslint-disable-next-line
   }, []);
+
+  const AddFriend = () => {
+    fetch('/follow', {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+      },
+      body: JSON.stringify({
+        followId: id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch({
+          type: 'UPDATE',
+          payload: { following: data.followers, followers: data.followers },
+        });
+        localStorage.setItem('user', JSON.stringify(data));
+        // setProfile((lastState)=>{
+        //   return {
+        //     ...state,
+        //     user:data
+        //   }
+        // })
+      });
+  };
   const styleDiv = {
     display: 'flex',
     justifyContent: 'space-around',
@@ -28,7 +56,11 @@ const UserProfile = () => {
     borderBottom: '1px dashed #616161',
   };
   const styleImg = { width: '160px', height: '160px', borderRadius: '80px' };
-  const styleFollowingDiv = { display: 'flex-colum', textAlign: 'center' };
+  const styleFollowingDiv = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '108%',
+  };
   return (
     <>
       {userProfile ? (
@@ -42,16 +74,27 @@ const UserProfile = () => {
               />
             </div>
             <div>
-              <h5 style={{ textAlign: 'center', marginTop: '15px' }}>
+              <h5 style={{ textAlign: 'center', marginTop: '40px' }}>
                 {userProfile.user.firstname + ' ' + userProfile.user.lastname}
+                <i
+                  className="material-icons"
+                  style={{
+                    marginLeft: '10px',
+                    marginTop: '6px',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => AddFriend()}
+                >
+                  person_add
+                </i>
               </h5>
               <h6 style={{ textAlign: 'center', marginTop: '10px' }}>
                 {userProfile.user.email}
               </h6>
               <div style={styleFollowingDiv}>
                 <h6>{userProfile.post.length} posts</h6>
-                <h6>54k Followers</h6>
-                <h6>200 Following</h6>
+                <h6>{userProfile.user.followers.length} followers</h6>
+                <h6>{userProfile.user.following.length} following</h6>
               </div>
             </div>
           </div>
