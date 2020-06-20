@@ -64,6 +64,7 @@ router.put("/like", verifyLogin, (req, res) => {
       }
     });
 });
+//dislike A post shared by your friend
 router.put("/dislike", verifyLogin, (req, res) => {
   Data.findByIdAndUpdate(
     req.body.postId,
@@ -81,7 +82,7 @@ router.put("/dislike", verifyLogin, (req, res) => {
       }
     });
 });
-
+//Comment on a post !! Secured Routed
 router.put("/comment", verifyLogin, (req, res) => {
   const comment = {
     text: req.body.text,
@@ -100,11 +101,11 @@ router.put("/comment", verifyLogin, (req, res) => {
       if (err) {
         return res.status(422).json({ error: err });
       } else {
-        res.json({ result });
+        res.json(result);
       }
     });
 });
-
+//Delete your posts
 router.delete("/deletepost/:postId", verifyLogin, (req, res) => {
   Data.findOne({ _id: req.params.postId })
     .populate("uploadedBy", "_id")
@@ -120,6 +121,7 @@ router.delete("/deletepost/:postId", verifyLogin, (req, res) => {
       }
     });
 });
+//Delete A comment Logged In user Posted
 router.delete("/deletecomment/:postId/:commentId", verifyLogin, (req, res) => {
   Data.findOne({ _id: req.params.postId })
     .populate("comments.postedBy", "_id firstname lastname email")
@@ -134,6 +136,18 @@ router.delete("/deletecomment/:postId/:commentId", verifyLogin, (req, res) => {
         return comment._id != req.params.commentId;
       });
       post.save().then((retu) => res.json(retu));
+    });
+});
+
+router.get("/friendsPost", verifyLogin, (req, res) => {
+  Data.find({ uploadedBy: { $in: req.user.following } })
+    .populate("uploadedBy", "_id firstname lastname email")
+    .populate("comments.postedBy", "_id firstname")
+    .then((data) => {
+      res.json({ data });
+    })
+    .catch((err) => {
+      console.log(err);
     });
 });
 module.exports = router;

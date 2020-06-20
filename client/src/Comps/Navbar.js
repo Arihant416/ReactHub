@@ -19,9 +19,14 @@ const Navbars = () => {
   const renderList = () => {
     if (state) {
       return [
-        <li key="1" className="lilink">
+        <li key="0" className="lilink">
           <Link to="/mypost" style={style}>
             Profile
+          </Link>
+        </li>,
+        <li key="1" className="lilink">
+          <Link to="/friendsPost" style={style}>
+            Circle's Feed
           </Link>
         </li>,
 

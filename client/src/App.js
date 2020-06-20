@@ -7,6 +7,7 @@ import Profile from './Comps/Profile';
 import Upload from './Comps/Upload';
 import About from './Comps/About';
 import UserProfile from './Comps/UserProfile';
+import FriendPost from './Comps/FriendsPost';
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 import { initialState, reducer } from './reducers/userReducer';
@@ -33,6 +34,7 @@ const Routing = () => {
       <Route path="/signup" component={SignUp} />
       <Route path="/newpost" component={Upload} />
       <Route exact path="/profile/:id" component={UserProfile} />
+      <Route path="/friendsPost" component={FriendPost} />
     </Switch>
   );
 };

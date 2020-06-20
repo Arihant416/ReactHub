@@ -42,6 +42,9 @@ const Profile = () => {
           <h5 style={{ textAlign: 'center', marginTop: '40px' }}>
             {state ? state.firstname + ' ' + state.lastname : 'Loading..'}
           </h5>
+          <h6 style={{ textAlign: 'center', marginTop: '10px' }}>
+            {state.email}
+          </h6>
           <div style={styleFollowingDiv}>
             <h6>{mypictures.length}</h6>
             <h6>{state ? state.followers.length : 'Fetching'} Followers</h6>
