@@ -122,6 +122,7 @@ const UserProfile = () => {
                       marginLeft: '10px',
                       marginTop: '6px',
                       cursor: 'pointer',
+                      color: 'green',
                     }}
                     onClick={() => AddFriend()}
                   >
@@ -134,6 +135,7 @@ const UserProfile = () => {
                       marginLeft: '10px',
                       marginTop: '6px',
                       cursor: 'pointer',
+                      color: 'red',
                     }}
                     onClick={() => UnFriend()}
                   >

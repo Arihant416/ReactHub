@@ -23,7 +23,11 @@ const Profile = () => {
     borderBottom: '1px dashed #616161',
   };
   const styleImg = { width: '160px', height: '160px', borderRadius: '80px' };
-  const styleFollowingDiv = { display: 'flex-colum', textAlign: 'center' };
+  const styleFollowingDiv = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '108%',
+  };
   return (
     <div className="container" style={{ margin: '0px auto' }}>
       <div style={styleDiv}>
@@ -35,13 +39,13 @@ const Profile = () => {
           />
         </div>
         <div>
-          <h5 style={{ textAlign: 'center', marginTop: '30px' }}>
+          <h5 style={{ textAlign: 'center', marginTop: '40px' }}>
             {state ? state.firstname + ' ' + state.lastname : 'Loading..'}
           </h5>
           <div style={styleFollowingDiv}>
-            <h6>100 Posts</h6>
-            <h6>54k Followers</h6>
-            <h6>200 Following</h6>
+            <h6>{mypictures.length}</h6>
+            <h6>{state ? state.followers.length : 'Fetching'} Followers</h6>
+            <h6>{state ? state.following.length : 'Fetching'} Following </h6>
           </div>
         </div>
       </div>
