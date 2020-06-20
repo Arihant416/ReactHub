@@ -3,6 +3,7 @@ import { UserContext } from '../App';
 import { useParams } from 'react-router-dom';
 const UserProfile = () => {
   const [userProfile, setProfile] = useState(null);
+  const [showFollow, setShowFollow] = useState(true);
   //eslint-disable-next-line
   const { state, dispatch } = useContext(UserContext);
   const { id } = useParams();
@@ -40,12 +41,50 @@ const UserProfile = () => {
           payload: { following: data.followers, followers: data.followers },
         });
         localStorage.setItem('user', JSON.stringify(data));
-        // setProfile((lastState)=>{
-        //   return {
-        //     ...state,
-        //     user:data
-        //   }
-        // })
+        setProfile((lastState) => {
+          return {
+            ...lastState,
+            user: {
+              ...lastState.user,
+              followers: [...lastState.user.followers, data._id],
+            },
+          };
+        });
+        setShowFollow(false);
+      });
+  };
+  const UnFriend = () => {
+    fetch('/unfollow', {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+      },
+      body: JSON.stringify({
+        unfollowId: id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch({
+          type: 'UPDATE',
+          payload: { following: data.followers, followers: data.followers },
+        });
+        localStorage.setItem('user', JSON.stringify(data));
+        setProfile((lastState) => {
+          const newFollower = lastState.user.followers.filter(
+            (item) => item !== data._id
+          );
+          return {
+            ...lastState,
+            user: {
+              ...lastState.user,
+              followers: newFollower,
+            },
+          };
+        });
+        setShowFollow(true);
       });
   };
   const styleDiv = {
@@ -76,17 +115,31 @@ const UserProfile = () => {
             <div>
               <h5 style={{ textAlign: 'center', marginTop: '40px' }}>
                 {userProfile.user.firstname + ' ' + userProfile.user.lastname}
-                <i
-                  className="material-icons"
-                  style={{
-                    marginLeft: '10px',
-                    marginTop: '6px',
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => AddFriend()}
-                >
-                  person_add
-                </i>
+                {showFollow ? (
+                  <i
+                    className="material-icons"
+                    style={{
+                      marginLeft: '10px',
+                      marginTop: '6px',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => AddFriend()}
+                  >
+                    person_add
+                  </i>
+                ) : (
+                  <i
+                    className="material-icons"
+                    style={{
+                      marginLeft: '10px',
+                      marginTop: '6px',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => UnFriend()}
+                  >
+                    remove_circle
+                  </i>
+                )}
               </h5>
               <h6 style={{ textAlign: 'center', marginTop: '10px' }}>
                 {userProfile.user.email}
