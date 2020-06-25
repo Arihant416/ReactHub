@@ -4,6 +4,7 @@ const Profile = () => {
   const [mypictures, setPictures] = useState([]);
   //eslint-disable-next-line
   const { state, dispatch } = useContext(UserContext);
+  const [image, setImage] = useState('');
   useEffect(() => {
     fetch('mypost', {
       headers: {
@@ -29,46 +30,56 @@ const Profile = () => {
     width: '108%',
   };
   return (
-    <div className="container" style={{ margin: '0px auto' }}>
-      <div style={styleDiv}>
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt=""
-            style={styleImg}
-          />
-        </div>
-        <div>
-          <h5 style={{ textAlign: 'center', marginTop: '40px' }}>
-            {state ? state.firstname + ' ' + state.lastname : 'Loading..'}
-          </h5>
-          <h6 style={{ textAlign: 'center', marginTop: '10px' }}>
-            {state.email}
-          </h6>
-          <div style={styleFollowingDiv}>
-            <h6>{mypictures.length}</h6>
-            <h6>{state ? state.followers.length : 'Fetching'} Followers</h6>
-            <h6>{state ? state.following.length : 'Fetching'} Following </h6>
-          </div>
-        </div>
-      </div>
-
-      <div className="row center">
-        {mypictures.map((picture) => {
-          return (
-            <div className="col s12 m6 l4">
+    <>
+      {state ? (
+        <div className="container" style={{ margin: '0px auto' }}>
+          <div style={styleDiv}>
+            <div>
               <img
-                key={picture._id}
-                alt={picture.title}
-                src={picture.picture}
-                style={{ width: '400px' }}
-                className="responsive-img card materialBox hoverable"
+                src={state ? state.picture : 'loading'}
+                alt=""
+                style={styleImg}
               />
             </div>
-          );
-        })}
-      </div>
-    </div>
+            <div>
+              <h5 style={{ textAlign: 'center', marginTop: '40px' }}>
+                {state ? state.firstname + ' ' + state.lastname : 'Loading..'}
+              </h5>
+              <h6 style={{ textAlign: 'center', marginTop: '10px' }}>
+                {state.email}
+              </h6>
+              <div style={styleFollowingDiv}>
+                <h6>{mypictures.length}</h6>
+                <h6>{state ? state.followers.length : 'Fetching'} Followers</h6>
+                <h6>
+                  {state ? state.following.length : 'Fetching'} Following{' '}
+                </h6>
+              </div>
+            </div>
+          </div>
+
+          <div className="row center">
+            {mypictures.map((picture) => {
+              return (
+                <div className="col s12 m6 l4">
+                  <img
+                    key={picture._id}
+                    alt={picture.title}
+                    src={picture.picture}
+                    style={{ width: '400px' }}
+                    className="responsive-img card materialBox hoverable"
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <div className="container center">
+          <h2>Loading...!</h2>
+        </div>
+      )}
+    </>
   );
 };
 

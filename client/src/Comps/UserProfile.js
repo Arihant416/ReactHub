@@ -3,10 +3,13 @@ import { UserContext } from '../App';
 import { useParams } from 'react-router-dom';
 const UserProfile = () => {
   const [userProfile, setProfile] = useState(null);
-  const [showFollow, setShowFollow] = useState(true);
+
   //eslint-disable-next-line
   const { state, dispatch } = useContext(UserContext);
   const { id } = useParams();
+  const [showFollow, setShowFollow] = useState(
+    state ? !state.following.includes(id) : true
+  );
   // console.log(id)
   useEffect(() => {
     fetch(`/user/${id}`, {
@@ -106,11 +109,7 @@ const UserProfile = () => {
         <div className="container" style={{ margin: '0px auto' }}>
           <div style={styleDiv}>
             <div>
-              <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-                alt=""
-                style={styleImg}
-              />
+              <img src={userProfile.user.picture} alt="" style={styleImg} />
             </div>
             <div>
               <h5 style={{ textAlign: 'center', marginTop: '40px' }}>

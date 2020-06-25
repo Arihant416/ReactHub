@@ -10,8 +10,8 @@ const verifyLogin = require("../controller/verifyLogin");
 //SignUp route for a new user
 router.post("/signup", (req, res) => {
   // console.log(req.body)
-  const { firstname, lastname, email, password } = req.body;
-  if (!isEmail(email) || !isOK(password) || !firstname || !lastname) {
+  const { firstname, lastname, email, password, picture } = req.body;
+  if (!email || !password || !firstname || !lastname) {
     return res.status(422).json({ error: "Add Proper Credentials" });
   }
   User.findOne({ email: email })
@@ -27,6 +27,7 @@ router.post("/signup", (req, res) => {
             lastname,
             email,
             password: hashedpassword,
+            picture,
           });
           person
             .save()
@@ -43,7 +44,7 @@ router.post("/signup", (req, res) => {
 //login Route for a new user
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
-  if (!isEmail(email) || !password) {
+  if (!email || !password) {
     return res.status(422).json({ error: "Invalid Credentials" });
   }
   User.findOne({ email: email })
@@ -61,13 +62,22 @@ router.post("/login", (req, res) => {
               firstname,
               email,
               lastname,
+              picture,
               followers,
               following,
             } = user;
             res.json({
               token,
               message: `Login Successful, Welcome back ${user.firstname}😃`,
-              user: { _id, firstname, email, lastname, followers, following },
+              user: {
+                _id,
+                firstname,
+                email,
+                lastname,
+                followers,
+                following,
+                picture,
+              },
             });
             console.log(`Welcome ${user.firstname}`);
           } else {
@@ -81,18 +91,18 @@ router.post("/login", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-//Email Validation Function
-const isEmail = (email) => {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-};
-//Password validation
-const isOK = (password) => {
-  if (!password || password.length > 20 || password.length < 6) {
-    return false;
-  }
-  return true;
-};
+// //Email Validation Function
+// const isEmail = (email) => {
+//   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   return re.test(String(email).toLowerCase());
+// };
+// //Password validation
+// const isOK = (password) => {
+//   if (!password || password.length > 20 || password.length < 6) {
+//     return false;
+//   }
+//   return true;
+// };
 
 module.exports = router;
 
