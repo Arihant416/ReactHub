@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../App';
+import M from 'materialize-css';
 const Profile = () => {
   const [mypictures, setPictures] = useState([]);
   //eslint-disable-next-line
   const { state, dispatch } = useContext(UserContext);
+  const [url, setUrl] = useState(undefined);
   const [image, setImage] = useState('');
   useEffect(() => {
     fetch('mypost', {
@@ -16,6 +18,36 @@ const Profile = () => {
         setPictures(results.data);
       });
   }, []);
+  useEffect(() => {
+    if (image) {
+      const data = new FormData();
+      data.append('file', image);
+      data.append('upload_preset', 'react-hub');
+      data.append('cloud_name', 'arihantcloudinary416');
+      fetch(
+        'https://api.cloudinary.com/v1_1/arihantcloudinary416/image/upload',
+        {
+          method: 'post',
+          body: data,
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setUrl(data.url);
+          // console.log(data);
+          M.toast({ html: 'It takes at least 5seconds', classes: 'orange' });
+          localStorage.setItem(
+            'user',
+            JSON.stringify({ ...state, picture: data.url })
+          );
+          dispatch({ type: 'UPDATEPIC', payload: data.url });
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [image]);
+  const updateDP = (dp) => {
+    setImage(dp);
+  };
   const styleDiv = {
     display: 'flex',
     justifyContent: 'space-around',
@@ -23,7 +55,12 @@ const Profile = () => {
     borderRadius: '4px',
     borderBottom: '1px dashed #616161',
   };
-  const styleImg = { width: '160px', height: '160px', borderRadius: '80px' };
+  const styleImg = {
+    width: '160px',
+    height: '160px',
+    borderRadius: '80px',
+    margin: 'auto',
+  };
   const styleFollowingDiv = {
     display: 'flex',
     justifyContent: 'space-between',
@@ -40,12 +77,36 @@ const Profile = () => {
                 alt=""
                 style={styleImg}
               />
+              <div className="file-field input-field">
+                <div className="btn black-text #e0e0e0 grey lighten-2">
+                  <span>Edit Avatar</span>
+                  <input
+                    type="file"
+                    onChange={(e) => updateDP(e.target.files[0])}
+                  />
+                </div>
+                <div className="file-path-wrapper">
+                  <input className="file-path validate" type="text" />
+                </div>
+              </div>
             </div>
             <div>
-              <h5 style={{ textAlign: 'center', marginTop: '40px' }}>
+              <h5
+                style={{
+                  textAlign: 'center',
+                  marginTop: '40px',
+                  paddingLeft: '10px',
+                }}
+              >
                 {state ? state.firstname + ' ' + state.lastname : 'Loading..'}
               </h5>
-              <h6 style={{ textAlign: 'center', marginTop: '10px' }}>
+              <h6
+                style={{
+                  textAlign: 'center',
+                  margin: 'auto 10px',
+                  paddingLeft: '15px',
+                }}
+              >
                 {state.email}
               </h6>
               <div style={styleFollowingDiv}>
