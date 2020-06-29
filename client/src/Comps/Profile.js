@@ -36,7 +36,7 @@ const Profile = () => {
           // setUrl(data.url);
 
           M.toast({
-            html: 'It takes at least 5seconds',
+            html: 'It takes at least 5 seconds',
             classes: 'orange',
           });
           fetch('/updateDP', {

@@ -9,6 +9,17 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const PostCredentials = () => {
+    if (
+      !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+      )
+    ) {
+      M.toast({
+        html: 'Invalid Email Address',
+        classes: '#c62828 red darken-3',
+      });
+      return;
+    }
     fetch('/login', {
       method: 'post',
       headers: {
