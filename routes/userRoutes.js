@@ -91,19 +91,6 @@ router.post("/login", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// //Email Validation Function
-// const isEmail = (email) => {
-//   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//   return re.test(String(email).toLowerCase());
-// };
-// //Password validation
-// const isOK = (password) => {
-//   if (!password || password.length > 20 || password.length < 6) {
-//     return false;
-//   }
-//   return true;
-// };
-
 module.exports = router;
 
 /*

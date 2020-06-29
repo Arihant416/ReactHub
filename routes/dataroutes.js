@@ -150,4 +150,5 @@ router.get("/friendsPost", verifyLogin, (req, res) => {
       console.log(err);
     });
 });
+
 module.exports = router;

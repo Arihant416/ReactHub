@@ -5,7 +5,7 @@ const Profile = () => {
   const [mypictures, setPictures] = useState([]);
   //eslint-disable-next-line
   const { state, dispatch } = useContext(UserContext);
-  const [url, setUrl] = useState(undefined);
+  // const [url, setUrl] = useState(undefined);
   const [image, setImage] = useState('');
   useEffect(() => {
     fetch('mypost', {
@@ -33,14 +33,31 @@ const Profile = () => {
       )
         .then((res) => res.json())
         .then((data) => {
-          setUrl(data.url);
-          // console.log(data);
-          M.toast({ html: 'It takes at least 5seconds', classes: 'orange' });
-          localStorage.setItem(
-            'user',
-            JSON.stringify({ ...state, picture: data.url })
-          );
-          dispatch({ type: 'UPDATEPIC', payload: data.url });
+          // setUrl(data.url);
+
+          M.toast({
+            html: 'It takes at least 5seconds',
+            classes: 'orange',
+          });
+          fetch('/updateDP', {
+            method: 'put',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+            },
+            body: JSON.stringify({
+              picture: data.url,
+            }),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+              localStorage.setItem(
+                'user',
+                JSON.stringify({ ...state, picture: result.picture })
+              );
+              dispatch({ type: 'UPDATEPIC', payload: result.picture });
+            });
         })
         .catch((err) => console.log(err));
     }

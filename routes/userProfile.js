@@ -78,4 +78,18 @@ router.put("/unfollow", verifyLogin, (req, res) => {
     }
   );
 });
+
+router.put("/updateDP", verifyLogin, (req, res) => {
+  User.findByIdAndUpdate(
+    req.user._id,
+    { $set: { picture: req.body.picture } },
+    { new: true },
+    (err, result) => {
+      if (err) {
+        return res.status(422).json({ error: "Picture failed to upload" });
+      }
+      res.json(result);
+    }
+  );
+});
 module.exports = router;
