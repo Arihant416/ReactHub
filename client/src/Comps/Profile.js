@@ -17,6 +17,7 @@ const Profile = () => {
       .then((results) => {
         setPictures(results.data);
       });
+    //eslint-disable-next-line
   }, []);
   useEffect(() => {
     if (image) {
@@ -61,6 +62,7 @@ const Profile = () => {
         })
         .catch((err) => console.log(err));
     }
+    //eslint-disable-next-line
   }, [image]);
   const updateDP = (dp) => {
     setImage(dp);
@@ -75,7 +77,7 @@ const Profile = () => {
   const styleImg = {
     width: '160px',
     height: '160px',
-    borderRadius: '80px',
+    borderRadius: '20px',
     margin: 'auto',
   };
   const styleFollowingDiv = {

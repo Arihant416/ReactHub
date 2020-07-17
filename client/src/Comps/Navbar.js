@@ -84,23 +84,14 @@ const Navbars = () => {
       {/* DropDown Structure */}
       <ul
         id="dropdown1"
-        className="dropdown-content #000000 black
+        className="dropdown-content #01579b light-blue darken-4
 "
       >
         {renderList()}
       </ul>
       <nav>
-        <div className="nav-wrapper #000000 black">
-          <Link
-            to={state ? '/' : '/login'}
-            className="brand-logo center"
-            style={{
-              marginLeft: '5px',
-              fontSize: '25px',
-              color: 'teal',
-              paddingTop: '3px',
-            }}
-          >
+        <div className="nav-wrapper">
+          <Link to={state ? '/' : '/login'} className="brand-logo left">
             React Hub
           </Link>
           <ul id="nav-mobile" className="right">
@@ -108,16 +99,14 @@ const Navbars = () => {
               <Link to="#" className="dropdown-trigger" data-target="dropdown1">
                 <span
                   className="ch"
-                  style={{ fontSize: '16px', float: 'right' }}
+                  style={{
+                    fontSize: '1rem',
+                    color: 'black ',
+                    float: 'left',
+                  }}
                 >
-                  Check
+                  Drop
                 </span>
-                <i
-                  className="material-icons right"
-                  style={{ color: 'white', float: 'right' }}
-                >
-                  arrow_drop_down
-                </i>
               </Link>
             </li>
           </ul>

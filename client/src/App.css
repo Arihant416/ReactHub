@@ -1,31 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Dancing+Script:wght@700&family=Tenali+Ramakrishna&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Sriracha&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Itim&family=Piedra&family=Sriracha&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Itim&family=Sriracha&display=swap');
-h5 {
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+* {
+  box-sizing: border-box !important;
+  font-weight: normal;
   text-decoration: none !important;
-  font-family: 'Sriracha', cursive;
+}
+body {
+  background: linear-gradient(90deg, black, grey, pink, skyblue);
+  /* background-size: cover; */
+  height: 100%;
+  width: 100%;
+  color: rgb(8, 34, 51);
+}
+.nav-wrapper {
+  background: cornflowerblue;
+  color: rgb(0, 0, 0);
+}
+h5 {
+  font-family: 'Quicksand', cursive;
 }
 .lilink {
   text-decoration: none !important;
-  font-family: 'Itim', cursive;
-  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(0, 0, 0);
 }
-
+.lilink:hover {
+  transform: scaleX(0.9);
+  color: black;
+}
 h2 {
   font-family: 'Pacifico', cursive;
 }
 .brand-logo {
-  color: white !important;
-  font-family: 'Pacifico', cursive;
+  color: rgb(0, 0, 0) !important;
+  font-family: 'Quicksand', serif;
+  margin: auto !important;
+  font-weight: 400 !important;
 }
-
 .cardy {
   padding: 20px;
   text-align: center;
-  max-width: 400px;
-  margin: 10px auto;
+  max-width: 500px;
+  margin: 20px auto;
 }
 .ch {
   font-family: 'Itim', cursive;
@@ -60,11 +75,6 @@ h2 {
   margin: auto auto;
   justify-content: center;
 }
-.abouth5,
-.centre {
-  font-family: 'Piedra', cursive;
-}
-
 .material-icons:hover {
   cursor: pointer;
 }

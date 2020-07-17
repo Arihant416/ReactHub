@@ -13,6 +13,7 @@ const SignUp = () => {
     if (url) {
       uploadDatas();
     }
+    //eslint-disable-next-line
   }, [url]);
   const UploadDP = () => {
     const data = new FormData();
@@ -31,6 +32,7 @@ const SignUp = () => {
   };
   const uploadDatas = () => {
     if (
+      //eslint-disable-next-line
       !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
       )
