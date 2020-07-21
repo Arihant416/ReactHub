@@ -75,15 +75,11 @@ const Profile = () => {
     borderBottom: '1px dashed #616161',
   };
   const styleImg = {
-    width: '160px',
-    height: '160px',
+    width: '150px',
+    height: '150px',
     borderRadius: '20px',
-    margin: 'auto',
-  };
-  const styleFollowingDiv = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: '108%',
+    marginTop: '15%',
+    marginLeft: '3%',
   };
   return (
     <>
@@ -97,8 +93,8 @@ const Profile = () => {
                 style={styleImg}
               />
               <div className="file-field input-field">
-                <div className="btn black-text #e0e0e0 grey lighten-2">
-                  <span>Edit Avatar</span>
+                <div className="btn black-text browser">
+                  <span>Edit DP</span>
                   <input
                     type="file"
                     onChange={(e) => updateDP(e.target.files[0])}
@@ -113,7 +109,7 @@ const Profile = () => {
               <h5
                 style={{
                   textAlign: 'center',
-                  marginTop: '40px',
+                  marginTop: '60px',
                   paddingLeft: '10px',
                 }}
               >
@@ -128,7 +124,7 @@ const Profile = () => {
               >
                 {state.email}
               </h6>
-              <div style={styleFollowingDiv}>
+              <div className="followStyle">
                 <h6>{mypictures.length}</h6>
                 <h6>{state ? state.followers.length : 'Fetching'} Followers</h6>
                 <h6>
@@ -146,8 +142,8 @@ const Profile = () => {
                     key={picture._id}
                     alt={picture.title}
                     src={picture.picture}
-                    style={{ width: '400px' }}
-                    className="responsive-img card materialBox hoverable"
+                    style={{ width: '400px', borderRadius: '20px' }}
+                    className="responsive-img card materialBox hoverable myImg"
                   />
                 </div>
               );

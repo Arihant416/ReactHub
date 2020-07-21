@@ -72,15 +72,10 @@ const SignUp = () => {
       uploadDatas();
     }
   };
-  const style = {
-    margin: '50px auto',
-    maxWidth: '500px',
-    padding: '20px',
-    textAlign: 'center',
-  };
+
   return (
     <div className="container">
-      <div className=" mycard" style={style}>
+      <div className=" mycard">
         <div className="card cardy hoverable input-field">
           <h2>
             <span>React Hub</span>
@@ -110,7 +105,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="file-field input-field">
-            <div className="btn black-text #e0e0e0 grey lighten-2">
+            <div className="btn black-text browse">
               <span>Browse Pictures</span>
               <input
                 type="file"

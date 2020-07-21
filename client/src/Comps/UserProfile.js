@@ -97,12 +97,14 @@ const UserProfile = () => {
     borderRadius: '4px',
     borderBottom: '1px dashed #616161',
   };
-  const styleImg = { width: '160px', height: '160px', borderRadius: '80px' };
-  const styleFollowingDiv = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: '108%',
+  const styleImg = {
+    width: '160px',
+    height: '160px',
+    borderRadius: '20px',
+    marginTop: '25%',
+    marginLeft: '0',
   };
+
   return (
     <>
       {userProfile ? (
@@ -112,7 +114,7 @@ const UserProfile = () => {
               <img src={userProfile.user.picture} alt="" style={styleImg} />
             </div>
             <div>
-              <h5 style={{ textAlign: 'center', marginTop: '40px' }}>
+              <h5 style={{ textAlign: 'center', marginTop: '35px' }}>
                 {userProfile.user.firstname + ' ' + userProfile.user.lastname}
                 {showFollow ? (
                   <i
@@ -121,7 +123,7 @@ const UserProfile = () => {
                       marginLeft: '10px',
                       marginTop: '6px',
                       cursor: 'pointer',
-                      color: 'green',
+                      color: 'black',
                     }}
                     onClick={() => AddFriend()}
                   >
@@ -145,7 +147,7 @@ const UserProfile = () => {
               <h6 style={{ textAlign: 'center', marginTop: '10px' }}>
                 {userProfile.user.email}
               </h6>
-              <div style={styleFollowingDiv}>
+              <div className="followStyle">
                 <h6>{userProfile.post.length} posts</h6>
                 <h6>{userProfile.user.followers.length} followers</h6>
                 <h6>{userProfile.user.following.length} following</h6>
@@ -161,7 +163,7 @@ const UserProfile = () => {
                     key={picture._id}
                     alt={picture.title}
                     src={picture.picture}
-                    style={{ width: '400px' }}
+                    style={{ width: '400px', borderRadius: '10px' }}
                     className="responsive-img card materialBox hoverable"
                   />
                 </div>

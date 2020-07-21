@@ -154,7 +154,7 @@ const Home = () => {
               {item.uploadedBy._id === state._id && (
                 <i
                   className="material-icons"
-                  style={{ float: 'right', paddingTop: '3px' }}
+                  style={{ float: 'right' }}
                   onClick={() => deletePost(item._id)}
                 >
                   delete
@@ -172,16 +172,15 @@ const Home = () => {
                     style={{
                       color: 'black',
                       fontSize: '15px',
-                      marginTop: '4px',
-                      paddingRight: '4px',
+
                       cursor: 'pointer',
-                      float: 'left',
+                      float: 'right',
                     }}
                     onClick={() => dislikeIt(item._id)}
                   >
                     thumb_down
                   </i>{' '}
-                  {'     '}Click to dislike
+                  {'     '}Post liked
                 </h6>
               ) : (
                 <h6>
@@ -189,10 +188,9 @@ const Home = () => {
                     style={{
                       color: 'red',
                       fontSize: '15px',
-                      marginTop: '4px',
-                      paddingRight: '4px',
+
                       cursor: 'pointer',
-                      float: 'left',
+                      float: 'right',
                     }}
                     className="material-icons"
                     onClick={() => likeIt(item._id)}
@@ -213,17 +211,15 @@ const Home = () => {
                         className="material-icons"
                         style={{
                           cursor: 'pointer',
-                          float: 'left',
+                          float: 'right',
                           fontSize: '15px',
-                          marginTop: '4px',
-                          paddingRight: '4px',
                         }}
                         onClick={() => deleteComment(item._id, comment._id)}
                       >
                         delete
                       </i>
                     )}
-                    <span style={{ fontWeight: 'bold' }}>
+                    <span className="commentby" style={{ fontWeight: 'bold' }}>
                       {comment.postedBy.firstname}
                     </span>{' '}
                     -{comment.text}

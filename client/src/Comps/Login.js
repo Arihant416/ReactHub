@@ -51,15 +51,9 @@ const Login = () => {
       .catch((err) => console.log(err));
   };
 
-  const style = {
-    margin: '70px auto',
-    maxWidth: '500px',
-    padding: '20px',
-    textAlign: 'center',
-  };
   return (
     <div className="container">
-      <div className="mycard #607d8b" style={style}>
+      <div className="mycards">
         <div className="card cardy hoverable input-field">
           <h2>
             <span>React Hub</span>

@@ -26,19 +26,19 @@ const Navbars = () => {
         </li>,
         <li key="1" className="lilink">
           <Link to="/friendsPost" style={style}>
-            Circle's Feed
+            Friends
           </Link>
         </li>,
 
         <li key="2" className="lilink">
           <Link to="/newpost" style={style}>
-            New feed
+            Add post
           </Link>
         </li>,
 
         <li key="3" className="lilink">
           <Link to="/about" style={style}>
-            Developer
+            Dev
           </Link>
         </li>,
 
@@ -63,35 +63,29 @@ const Navbars = () => {
             Login
           </Link>
         </li>,
-
-        <li key="3" className="lilink">
-          <Link to="/about" style={style}>
-            Developer
-          </Link>
-        </li>,
-
         <li key="6" className="lilink">
           <Link to="/signup" style={style}>
             Signup
           </Link>
         </li>,
+        <li key="3" className="lilink">
+          <Link to="/about" style={style}>
+            Dev
+          </Link>
+        </li>,
       ];
     }
   };
-  const style = { fontSize: '18px', color: '#fff' };
+  const style = { fontSize: '1.2rem', color: '#000' };
   return (
-    <div>
+    <div className="navbar-fixed">
       {/* DropDown Structure */}
-      <ul
-        id="dropdown1"
-        className="dropdown-content #01579b light-blue darken-4
-"
-      >
+      <ul id="dropdown1" className="dropdown-content teal">
         {renderList()}
       </ul>
       <nav>
         <div className="nav-wrapper">
-          <Link to={state ? '/' : '/login'} className="brand-logo left">
+          <Link to={state ? '/' : '/login'} className="brand-logo center">
             React Hub
           </Link>
           <ul id="nav-mobile" className="right">
@@ -102,10 +96,9 @@ const Navbars = () => {
                   style={{
                     fontSize: '1rem',
                     color: 'black ',
-                    float: 'left',
                   }}
                 >
-                  Drop
+                  <i className="material-icons">arrow_drop_down_circle</i>
                 </span>
               </Link>
             </li>

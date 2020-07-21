@@ -5,15 +5,20 @@
   text-decoration: none !important;
 }
 body {
-  background: linear-gradient(90deg, black, grey, pink, skyblue);
-  /* background-size: cover; */
   height: 100%;
   width: 100%;
+  background: url('https://images.unsplash.com/photo-1486189611905-d51f12cbe71f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: rgb(8, 34, 51);
 }
 .nav-wrapper {
-  background: cornflowerblue;
+  background: linear-gradient(rgb(255, 255, 255), skyblue);
   color: rgb(0, 0, 0);
+  margin: 0;
 }
 h5 {
   font-family: 'Quicksand', cursive;
@@ -22,33 +27,42 @@ h5 {
   text-decoration: none !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(0, 0, 0);
+  background: linear-gradient(90deg, white, skyblue);
 }
 .lilink:hover {
-  transform: scaleX(0.9);
-  color: black;
+  background: -webkit-linear-gradient(white, pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 h2 {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Quicksand', serif;
 }
 .brand-logo {
   color: rgb(0, 0, 0) !important;
+  text-shadow: 2px 2px;
   font-family: 'Quicksand', serif;
   margin: auto !important;
   font-weight: 400 !important;
 }
+.mycards,
+.mycard {
+  top: 30%;
+  left: 50%;
+}
 .cardy {
+  border-radius: 10px;
   padding: 20px;
   text-align: center;
-  max-width: 500px;
-  margin: 20px auto;
-}
-.ch {
-  font-family: 'Itim', cursive;
-  color: #fff;
+  max-width: 400px;
+  margin: 100px auto;
+  opacity: 0.6;
+  color: black;
 }
 
-.input-field input[type='text']:focus {
+.input-field input[type='email']:focus {
   border-bottom: 1px solid rgb(8, 93, 252) !important;
+  size: 10px;
   box-shadow: 0 1px 0 0 rgb(15, 150, 228) !important;
 }
 
@@ -65,11 +79,25 @@ h2 {
 }
 
 .home-card {
+  border-radius: 10px;
   max-width: 500px;
   height: max-content;
   margin: 20px auto;
+  font-family: 'Quicksand', cursive;
+  opacity: 0.8;
 }
-
+.home-card h5 {
+  text-transform: capitalize;
+  text-align: center;
+  text-shadow: 2px 2px grey;
+}
+.home-card .card-image {
+  width: 100%;
+  margin: auto;
+}
+.card-image:hover {
+  transform: scale3d(0.9, 0.9, 1.1);
+}
 #toast-container {
   top: 50px;
   margin: auto auto;
@@ -77,4 +105,23 @@ h2 {
 }
 .material-icons:hover {
   cursor: pointer;
+}
+.browse {
+  background: linear-gradient(black, skyblue);
+}
+.browser {
+  font-size: 1rem;
+  padding: 1px;
+  margin-left: 10px;
+  background: white;
+  opacity: 0.8;
+}
+
+.followStyle {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
 }
