@@ -1,3 +1,4 @@
 node_modules
 
 config/key.js
+config/dev.js

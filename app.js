@@ -1,6 +1,6 @@
 const express = require("express"),
   app = express(),
-  PORT = 2500,
+  PORT = process.env.PORT || 2500,
   mongoose = require("mongoose"),
   { mongoURL } = require("./config/key");
 
@@ -19,6 +19,13 @@ app.use(require("./routes/userRoutes"));
 app.use(require("./routes/dataroutes"));
 app.use(require("./routes/userProfile"));
 
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static("client/build"));
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });

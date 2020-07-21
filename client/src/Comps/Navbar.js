@@ -80,7 +80,10 @@ const Navbars = () => {
   return (
     <div className="navbar-fixed">
       {/* DropDown Structure */}
-      <ul id="dropdown1" className="dropdown-content teal">
+      <ul
+        id="dropdown1"
+        className="dropdown-content #546e7a blue-grey darken- "
+      >
         {renderList()}
       </ul>
       <nav>
